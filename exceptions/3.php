@@ -3,7 +3,7 @@
 function validarUsuario(array $usuario)
 {
     if (empty($usuario['codigo']) || empty($çusuario['nome']) || empty($usuario['idade'])){
-        return false;
+        throw new Exception("Campos obrigatórios não foram preenchidos!");
     }
 
     return true;
@@ -15,13 +15,6 @@ $usuario = [
     'idade' => 57,
 ];
 
-//Chamada da função valida ususario
-$usuarioValido = validarUsuario($usuario);
-
-//Aqui é a mensagem se o usuario estiver invalido, codigo, nome ou idade vazio
-if (!$usuarioValido) {
-    echo "Usuário Invalido!";
-    return false; //Aqui ele retorno falso para interromper o codigo
-}
+validarUsuario($usuario);
 
 echo "\n ... executando ...\n";
